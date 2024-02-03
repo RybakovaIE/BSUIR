@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+
+<h1>Добавить запись</h1>
+
+<form method="POST" action="{%url 'add_transaction'%}">
+    {%csrf_token%}
+    {{form.as_p}}
+    <br/>
+    <button type="submit" class="btn btn-secondary">Сохранить</button>
+</form>
+</div>
+
+{%endblock%}

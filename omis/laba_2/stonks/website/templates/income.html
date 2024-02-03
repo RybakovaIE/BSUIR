@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Запись о доходе:</h1>
+<div class="card">
+    <div class="card-header">
+    <h3>выбранный доход:</h3>
+    </div>
+    <div class="card-body">
+        <a href="{% url 'income' one_income.id %}"></a>
+        <p class="card-text"><strong>сумма: </strong>{{one_income.name}}</p>
+        <p class="card-text"><strong>категория: </strong>{{one_income.sum}}</p>
+        <p class="card-text"><strong>дата и время: </strong>{{one_income.time}}</p>
+    </div>
+</div>
+<br/><br/>
+<a href="{%url 'incomes'%}" class="btn btn-secondary">Назад</a>
+<a href="{%url 'delete_income' one_income.id%}" class="btn btn-danger">Удалить</a>
+{%endblock%}

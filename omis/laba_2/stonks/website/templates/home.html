@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row text-center">
+            <div class="col-6">
+                <div class="row bg-secondary m-1 mb-2 rounded text-center">
+                    <p class="display-5" style=" color:white;">Ваш баланс</p>
+                    <p class="display-2" style="color:white;">{{balance}} BYN</p>
+                    <p class="display-6.5" style="text-align:center; color:white;">из которых 50 не учтены<br>в бюджетном планировании</p>
+                </div>
+                <div class="row">
+                    <div class="col m-3 bg-secondary rounded text-center">
+                        <p class="display-7" style="text-align:center; color:white;">последний расход</p>
+                        <p class="display-5" style="text-align:center; color:white;">{{spend_sum}}BYN</p>
+                        <p class="display-9" style="text-align:center; color:white;">{{spend_time}}</p>
+                    </div>
+                    <div class="col m-3 bg-secondary rounded text-center">
+                        <p class="display-7" style="text-align:center; color:white;">последний доход</p>
+                        <p class="display-5" style="text-align:center; color:white;">{{income_sum}}BYN</p>
+                        <p class="display-9" style="text-align:center; color:white;">{{income_time}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 m-1 ms-5 bg-secondary rounded text-center ">
+                <p class="display-5" style="color:white;">последние транзакции</p><hr style="color:rgb(255, 255, 255);">
+                
+                <table class="table table-striped  table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col" style="color:white;">сумма</th>
+                        <th scope="col" style="color:white;">категория</th>
+                        <th scope="col" style="color:white;">время</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% if transactions %}
+                        {% for transaction in transactions %}
+                        <tr>
+                            {% if transaction.sum > 0 %}
+                            <td><a href="{% url 'transaction' transaction.id %}" class="btn" style="color:rgb(0, 206, 14);">+{{transaction.sum}}</a></td>
+                            {% else %}
+                            <td><a href="{% url 'transaction' transaction.id %}" class="btn" style="color:rgb(255, 53, 53);">{{transaction.sum}}</a></td>
+                            {% endif %}
+                            <td style="color:white;">{{transaction.category}}</td>
+                            <td style="color:white;">{{transaction.time}}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                        
+                    </tbody>
+                </table>
+                <br/>
+                <div>
+                    <a href ="{% url 'add_transaction' %}" class="btn btn-secondary" style="font-size: 30px;">+</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

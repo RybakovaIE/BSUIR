@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Доходы</h1>
+<div class="m-1 bg-secondary rounded text-center ">
+    <p class="display-5" style="color:white;">последние транзакции</p><hr style="color:rgb(255, 255, 255);">
+    <div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0" style="color:rgb(51, 51, 51)">
+      {% if transactions %}  
+        {% for el in transactions %}
+            {% if el.sum > 0 %}
+            <div class="container" style="color:rgb(51, 51, 51)">
+                <div class="row text-center" style="color:rgb(51, 51, 51);">
+                    <div class="col-4" style="color:rgb(51, 51, 51);">
+                            <p class="display-5" style="text-align:center; color:rgb(23, 234, 0);">{{el.sum}}</p>
+                        
+                    </div>
+                    <div class="col-4">
+                        <p class="display-6" style="text-align:center; color:rgb(255, 255, 255);">{{el.category}}</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="display-11" style="text-align:center; color:rgb(255, 255, 255);">{{el.time}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div>
+        <a href ="{% url 'add_transaction' %}" class="btn btn-secondary">+</a>
+    </div>
+</div>
+<br><hr>
+<div class="container mt-5">
+    <div class="row text-center">
+        {% if incomes %}  
+            {% for el in incomes %}
+                <div class="col-3">
+                    <div class="m-1 bg-secondary rounded text-center">
+                    <a href="{% url 'income' el.id %}" class="btn" style="color:rgb(255, 255, 255); font-size: 30px;">{{el.name}}</a>
+                    <p class="display-4" style="color:rgb(13, 255, 0);">{{el.sum}} BYN</p>
+                    <p class="display-8" style="color:rgb(255, 255, 255);">{{el.before}} до начисления</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="col-3">
+            <div class="m-1 bg-secondary rounded text-center">
+                <a href ="{% url 'add_income' %}" class="btn btn-secondary" style="font-size: 102px;">+</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{%endblock%}
