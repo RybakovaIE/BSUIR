@@ -1,0 +1,1605 @@
+#:kivy 2.0.0
+#:import hex kivy.utils.get_color_from_hex
+#:import sp kivy.metrics.sp
+
+<WindowManager>:
+	MenuScreen:
+	AnimalsScreen:
+		id: animals_screen
+	BirdsScreen:
+		id: birds_screen
+	ReptilesScreen:
+		id: reptiles_screen
+	WorkersScreen:
+		id: workers_screen
+	CouplesScreen:
+		id: couples_screen
+	DietsScreen:
+		id: diets_screen
+	EnvironmentsScreen:
+		id: environments_screen
+
+<DietsScreen>
+	name:'diets'
+	canvas.before:
+        Color:
+            rgba: hex("#FFFFFF")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('diets', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'удалить'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_delete_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'добавить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_add_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint: 1, 0.7
+
+
+<AnimalsScreen>:
+	name:'animals'
+	canvas.before:
+        Color:
+            rgba: hex("#00ebd8")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('animals', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'удалить'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_delete_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'добавить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_animal_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint:1,0.7
+
+<BirdsScreen>:
+	name:'birds'
+	canvas.before:
+        Color:
+            rgba: hex("#FFFFFF")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('birds', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'удалить'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_delete_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'добавить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_add_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint:1,0.7
+
+<ReptilesScreen>:
+	name:'reptiles'
+	canvas.before:
+        Color:
+            rgba: hex("#FFFFFF")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('reptiles', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'удалить'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_delete_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'добавить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_add_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint:1,0.7
+
+<EnvironmentsScreen>:
+	name:'environments'
+	canvas.before:
+        Color:
+            rgba: hex("#FFFFFF")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('environments', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'удалить'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_delete_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'добавить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_add_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint:1,0.7
+
+<WorkersScreen>:
+	name:'workers'
+	canvas.before:
+        Color:
+            rgba: hex("#FFFFFF")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('workers', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'удалить'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_delete_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'добавить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_add_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint:1,0.7
+
+<CouplesScreen>:
+	name:'couples'
+	canvas.before:
+        Color:
+            rgba: hex("#FFFFFF")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+	ActionBar:
+	
+	BoxLayout:
+		orientation:'vertical'
+		pos_hint: {'top': 0.92}
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: 1, 0.05
+			AnchorLayout:
+				pos_hint: {'center_x': 0.27, 'center_y': 0.5}
+				size_hint: 0.54, 1
+				TextInput:
+					id: search
+					hint_text: 'поиск'
+			AnchorLayout:
+				pos_hint: {'center_x': 0.64, 'center_y': 0.5}
+				size_hint: 0.2, 1
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'найти'
+					background_normal: ''
+					background_color: 1, 0.1, 1, 0.9
+					on_press:
+						app.load_table('couples', content = root.search())
+			GridLayout:
+				cols: 4
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'изменить'
+					background_normal: ''
+					background_color: 0.75, 0.1, 1, 0.9
+					on_press: 
+						root.alter()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'развести'
+					background_normal: ''
+					background_color: 0.5, 0.1, 1, 0.9
+					on_press:
+						root.show_divorce_popup()
+				Button:
+					theme_text_color: 'Custom'
+					color: 0,0,0,1
+					font_name: 'Comic'
+					text: 'поженить'
+					background_normal: ''
+					background_color: 0, 0.4, 1, 0.9
+					on_press:
+						root.show_add_popup()
+		AnchorLayout:
+			id: data_layout
+			pos_hint:{'center_x':.5,'center_y':.5}
+			size_hint:1,0.7
+
+<MenuScreen>:
+	name:'table'
+	canvas.before:
+    	Color:
+            rgba: hex("#00ebd8")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+		spacing: 5
+		orientation:'vertical'
+		MainWidget:
+
+
+<ActionBar>:
+    pos_hint: {'top':1}
+    ActionView:
+		canvas.before:
+			Color:
+				rgba: 1, 1, 1, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+        use_separator: True
+        ActionPrevious:
+            title: 'tables'
+            with_previous: False
+				
+        ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0,0,0,1
+			font_name: 'Comic'
+            text: 'животные'
+			canvas.before:
+				Color:
+					rgba: 1, 0.1, 0.2, 0.8
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+			on_press: 
+				app.change_screen('animals')
+				app.load_table('animals')
+			
+		ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0, 0, 0, 1
+			font_name: 'Comic'
+			canvas.before:
+				Color:
+					rgba: 1, 0.35, 0, 0.8
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+            text: 'птицы'
+            on_press: 
+				app.change_screen('birds')
+				app.load_table('birds')
+
+		ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0, 0, 0, 1
+			font_name: 'Comic'
+			canvas.before:
+				Color:
+					rgba: 1, 0.65, 0, 0.8
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+            text: 'рептилии'
+            on_press: 
+				app.change_screen('reptiles')
+				app.load_table('reptiles')
+
+		ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0, 0, 0, 1
+			font_name: 'Comic'
+			canvas.before:
+				Color:
+					rgba: 1, 1, 0, 0.8
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+            text: 'среды обитания'
+            on_press: 
+				app.change_screen('environments')
+				app.load_table('environments')
+
+        ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0, 0, 0, 1
+			font_name: 'Comic'
+			canvas.before:
+				Color:
+					rgba: 0.2, 1, 0, 0.8
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+            text: 'диеты'
+            on_press: 
+				app.change_screen('diets')
+				app.load_table('diets')
+				
+        ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0, 0, 0, 1
+			font_name: 'Comic'
+			canvas.before:
+				Color:
+					rgba: 0, 0.8, 1, 1
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+            text: 'рабочие'
+            on_press: 
+				app.change_screen('workers')
+				app.load_table('workers')
+
+		ActionButton:
+		    theme_text_color: 'Custom'
+			color: 0, 0, 0, 1
+			font_name: 'Comic'
+			canvas.before:
+				Color:
+					rgba: 0, 0.6, 1, 0.9
+				Rectangle:
+					pos: self.pos
+					size: self.size	
+            text: 'женатые'
+            on_press: 
+				app.change_screen('couples')
+				app.load_table('couples')
+		
+
+
+<MainWidget>	
+	id: main
+	GridLayout:
+		spacing:0,5
+		padding: 20
+		cols: 1
+	Button:
+	    background_normal: ''
+		background_color: 0.5, 0.1, 0.8, 0.7
+		size_hint: 1, 1
+		pos_hint:{'center_x':.5,'center_y':.5}
+		text:"press any key to continue"	
+		font_name: 'Comic'
+		font_size: 50
+		on_press:		
+			app.load_table('animals')
+			app.change_screen('animals')
+
+<ColorfulLabel>:
+	background_normal: ''
+	background_color: 1, 0.5, 0, 0.5
+	theme_text_color: 'Custom'
+	color: 0,0,0,1
+	font_name: 'Comic'
+	canvas.before:
+		Color:
+			rgba: root.background_color
+		Rectangle:
+			pos: self.pos
+			size: self.size	
+
+<AddAnimalPopup>:
+	title: 'информация нового животного'
+	size_hint: 0.6, 0.55
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 8
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "вид"
+			TextInput:
+				id: species
+			ColorfulLabel:
+				background_color: 1, 0.35, 0, 1
+				text: "имя"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 0.65, 0, 1
+				text: "дата рождения"
+			TextInput:
+				id: birth_date
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "пол"
+			TextInput:
+				id: sex
+			ColorfulLabel:
+				background_color: 0, 1, 0, 1
+				text:"диета"
+			TextInput:
+				id: diet
+			ColorfulLabel:
+				background_color: 0, 0.5, 1, 1
+				text:"среда обитания"
+			TextInput:
+				id: environment
+			ColorfulLabel:
+				background_color: 0, 0, 1, 1
+				text:"надзиратель"
+			TextInput:
+				id: supervisor
+			ColorfulLabel:
+				background_color: 0.4, 0, 1, 1
+				text:"ветеринар"
+			TextInput:
+				id: vet
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.13
+			Button:
+				background_normal: ''
+				background_color: 0.8, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"добавить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('animals')
+
+<AddDietPopup>:
+	title: 'данные новой диеты'
+	size_hint: 0.6, 0.27
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 2
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0, 1
+				text: "название"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "тип"
+			TextInput:
+				id: type
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+			size_hint: 0.3, 0.3
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"добавить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('diets')
+					root.dismiss()
+
+<AddBirdPopup>:
+	title: 'информация новой птицы'
+	size_hint: 0.6, 0.37
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 4
+			pos_hint: {'center_y': 0.6}
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "N"
+			TextInput:
+				id: n
+			ColorfulLabel:
+				background_color: 1, 1, 0.1, 1
+				text: "место зимовки"
+			TextInput:
+				id: winter
+			ColorfulLabel:
+				background_color: 0, 0.9, 0.1, 1
+				text: "дата улета"
+			TextInput:
+				id: departure
+			ColorfulLabel:
+				background_color: 0.1, 0.2, 0.9, 1
+				text: "дата прилета"
+			TextInput:
+				id: arrival
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+			size_hint: 0.3, 0.35
+			Button:
+				background_normal: ''
+				background_color: 0.5, 0.1, 0.8, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"добавить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('birds')
+
+<AddReptilePopup>:
+	title: 'данные новой рептилии'
+	size_hint: 0.6, 0.3
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 3
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "N"
+			TextInput:
+				id: n
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "температура"
+			TextInput:
+				id: temperature
+			ColorfulLabel:
+				background_color: 0, 1, 0, 1
+				text: "время спячки"
+			TextInput:
+				id: hibernation_days
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.2
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"добавить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('reptiles')
+					root.dismiss()
+
+<AddEnvironmentPopup>:
+	title: 'данные новой среды'
+	size_hint: 0.6, 0.27
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 2
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0, 1
+				text: "название"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "описание"
+			TextInput:
+				id: description
+				multiline: True
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.5
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"добавить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('environments')
+					root.dismiss()
+
+<AddWorkerPopup>:
+	title: 'информация нового сотрудника'
+	size_hint: 0.6, 0.46
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 6
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "должность"
+			TextInput:
+				id: prof
+			ColorfulLabel:
+				background_color: 1, 0.5, 0, 1
+				text: "имя"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "дата рождения"
+			TextInput:
+				id: birth_date
+			ColorfulLabel:
+				background_color: 0, 1, 0, 1
+				text: "номер телефона"
+			TextInput:
+				id: phone_number
+			ColorfulLabel:
+				background_color: 0, 1, 1, 1
+				text: "семейное положение"
+			TextInput:
+				id: family_status
+			ColorfulLabel:
+				background_color: 0, 0, 1, 1
+				text: "супруг"
+			TextInput:
+				id: marriage
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.15
+			Button:
+				background_normal: ''
+				background_color: 0.8, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"добавить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('workers')
+
+<AddCouplePopup>:
+	title: 'серийные номера молодоженов'
+	size_hint: 0.6, 0.28
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 2
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "N первого работника"
+			TextInput:
+				id: n_first
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "N второго работника"
+			TextInput:
+				id: n_second
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 1}
+			size_hint: 0.3, 0.4
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"поженить"	
+				font_name: 'Comic'
+				on_press:		
+					root.add_button()
+					app.load_table('couples')
+					root.dismiss()
+
+<DeleteAnimalsPopup>:
+	title: ''
+	size_hint: 0.6, 0.35
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			id: delete_text
+			text: 'выбранные животные будут убиты'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		GridLayout:
+			size_hint: 1, 0.6
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				id: continue_button
+				text: 'продолжить'
+				on_press:
+					root.delete_button()
+					app.load_table('animals')
+					root.dismiss()
+
+
+<DeleteDietPopup>:
+	title: ''
+	size_hint: 0.6, 0.37
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			id: label
+			text: '\nживотные больше не смогут так питаться'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				text: 'продолжить'
+				on_press:
+					root.delete_button()
+					app.load_table('diets')
+					root.dismiss()
+
+<DeleteBirdsPopup>:
+	title: ''
+	size_hint: 0.6, 0.35
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			text: '\nвыбранные птицы больше\nне будут птицами\n'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.75
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				text: 'продолжить'
+				on_press:
+					root.delete_button()
+					app.load_table('birds')
+					root.dismiss()
+
+<DeleteReptilesPopup>:
+	title: ''
+	size_hint: 0.6, 0.32
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			text: 'выбранные рептилии больше\nне будут рептилиями'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				text: 'продолжить'
+				on_press:
+					root.delete_button()
+					app.load_table('reptiles')
+					root.dismiss()
+
+
+<DeleteEnvironmentsPopup>:
+	title: ''
+	size_hint: 0.6, 0.32
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			id: label
+			text: 'животные больше не смогут тут жить'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				text: 'продолжить'
+				on_press:
+					root.delete_button()
+					app.load_table('environments')
+					root.dismiss()
+
+<DeleteWorkerPopup>:
+	title: ''
+	size_hint: 0.6, 0.32
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			id: delete_text
+			text: 'выбранные сотрудники\nстанут безработными'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				id: continue_button
+				text: 'продолжить'
+				on_press:
+					root.delete_button()
+					app.load_table('workers')
+					root.dismiss()
+
+<WrongQualification>:
+	title: ''
+	size_hint: 0.6, 0.35
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+		Label:
+			id: delete_text
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		Label:
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'a, ой'
+				on_press:
+					root.not_ok()
+					root.dismiss()
+			Button:
+				id: continue_button
+				text: 'я знаю'
+				on_press:
+					root.ok()
+					root.dismiss()
+
+<DivorceCouplePopup>:
+	title: ''
+	size_hint: 0.6, 0.32
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			id: delete_text
+			text: 'выбранные работники\nбудут разведены'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		GridLayout:
+			cols: 2
+			padding: 30
+			spacing: 30
+			Button:
+				text: 'не надо'
+				on_press:
+					root.dismiss()
+			Button:
+				id: continue_button
+				text: 'продолжить'
+				on_press:
+					root.divorce_button()
+					app.load_table('couples')
+					root.dismiss()
+
+<ErrorPopup>:
+	title: ''
+	size_hint: 0.6, 0.4
+	title_font: 'Comic'
+	title_align: 'center'
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		Label:
+			id: error_text
+			text: 'выберите только одну запись\nчтобы изменить'
+			font_name: 'Comic'
+			font_size: 30
+			size_hint: 1, 0.6
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+			size_hint: 0.25, 0.16
+			Button:
+				id: button
+				text: 'ладно'
+				on_press:
+					root.dismiss()
+	
+				
+<AlterAnimalPopup>:
+	title: 'новая информация животного'
+	size_hint: 0.6, 0.55
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 8
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "вид"
+			TextInput:
+				id: species
+			ColorfulLabel:
+				background_color: 1, 0.35, 0, 1
+				text: "имя"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 0.65, 0, 1
+				text: "дата рождения"
+			TextInput:
+				id: birth_date
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "пол"
+			TextInput:
+				id: sex
+			ColorfulLabel:
+				background_color: 0, 1, 0, 1
+				text:" диета"
+			TextInput:
+				id: diet
+			ColorfulLabel:
+				background_color: 0, 0.5, 1, 1
+				text:"среда обитания"
+			TextInput:
+				id: environment
+			ColorfulLabel:
+				background_color: 0, 0.1, 0.8, 1
+				text:"надзиратель"
+			TextInput:
+				id: supervisor
+			ColorfulLabel:
+				background_color: 0.5, 0, 0.8, 1
+				text:"ветеринар"
+			TextInput:
+				id: vet
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.25, 0.14
+			Button:
+				background_normal: ''
+				background_color: 0.8, 0.1, 0.8, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('animals')
+
+<AlterDietPopup>:
+	title: 'новая информация диеты'
+	size_hint: 0.6, 0.25
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 2
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0, 1
+				text: "название"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "тип"
+			TextInput:
+				id: type
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+			size_hint: 0.3, 0.35
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('diets')
+					root.dismiss()
+
+<AlterBirdPopup>:
+	title: 'новая информация птицы'
+	size_hint: 0.6, 0.34
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 3
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0, 1
+				text: "место зимовки"
+			TextInput:
+				id: winter
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "время улета"
+			TextInput:
+				id: departure
+			ColorfulLabel:
+				background_color: 0, 1, 0, 1
+				text: "время прилета"
+			TextInput:
+				id: arrival
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.3
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('birds')
+					root.dismiss()
+
+<AlterReptilePopup>:
+	title: 'новая информация рептилии'
+	size_hint: 0.6, 0.28
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 2
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0, 1
+				text: "температура"
+			TextInput:
+				id: temperature
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "время спячки"
+			TextInput:
+				id: hibernation_days
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.3
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('reptiles')
+					root.dismiss()
+
+<AlterCouplePopup>:
+	title: 'новая пара'
+	size_hint: 0.6, 0.25
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 2
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0, 1
+				text: "N первого работника"
+			TextInput:
+				id: n_first
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "N второго работника"
+			TextInput:
+				id: n_second
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.4
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('couples')
+					root.dismiss()
+
+<AlterWorkerPopup>:
+	title: 'новая информация сотрудника'
+	size_hint: 0.6, 0.45
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		GridLayout:
+			spacing:5
+			cols: 2
+			rows: 6
+			row_force_default: True
+			row_default_height: 30
+			row_default_weight: 20
+			ColorfulLabel:
+				background_color: 1, 0, 0.1, 1
+				text: "должность"
+			TextInput:
+				id: prof
+			ColorfulLabel:
+				background_color: 1, 0.35, 0, 1
+				text: "имя"
+			TextInput:
+				id: name
+			ColorfulLabel:
+				background_color: 1, 0.65, 0, 1
+				text: "дата рождения"
+			TextInput:
+				id: birth_date
+			ColorfulLabel:
+				background_color: 1, 1, 0, 1
+				text: "номер телефона"
+			TextInput:
+				id: phone_number
+			ColorfulLabel:
+				background_color: 0, 1, 0, 1
+				text: "семейное положение"
+			TextInput:
+				id: family_status
+			ColorfulLabel:
+				background_color: 0, 0.5, 1, 1
+				text: "супруг"
+			TextInput:
+				id: marriage
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			size_hint: 0.3, 0.2
+			Button:
+				background_normal: ''
+				background_color: 0.5, 0.1, 0.8, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('workers')
+					root.dismiss()
+
+<AlterEnvironmentPopup>:
+	title: 'описание выбранной среды'
+	size_hint: 0.6, 0.6
+	title_font: 'Comic'
+	title_align: 'center'
+	
+	BoxLayout:
+		cols: 1
+		orientation: 'vertical'
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+			TextInput:
+				id: description
+				multiline: True
+		AnchorLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+			size_hint: 0.3, 0.09
+			Button:
+				background_normal: ''
+				background_color: 0, 0, 1, 1
+				size_hint: 1, 1
+				pos_hint:{'center_x':.5,'center_y':.5}
+				text:"изменить"	
+				font_name: 'Comic'
+				on_press:		
+					root.alter_button()
+					app.load_table('environments')
+					root.dismiss()
