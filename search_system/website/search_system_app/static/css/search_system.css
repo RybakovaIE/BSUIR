@@ -1,0 +1,311 @@
+/* .search {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+
+
+h1 {
+    display: flex;
+    margin: auto;
+    justify-content: center; 
+} */
+
+#add_links_and_calc_metrics {
+    display: flex;
+    
+    background-color: #333333;
+}
+
+body {
+    width: 100%;
+    margin: auto;
+   
+}
+
+pre {
+    white-space: pre-wrap; /* Разрешает перенос длинных строк */
+    word-wrap: break-word; /* Обеспечивает разрыв слов, выходящих за границу блока */
+    overflow-wrap: break-word; /* Альтернативная версия для некоторых браузеров */
+    width: 100%; /* Устанавливаем ширину блока, чтобы текст мог переноситься */
+  }
+
+.btn {
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #333333;
+    border: #fff 1px solid;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    /* margin-left: 15px; */
+    margin: 20px 30px 0 10px;
+}
+
+.all_actions {
+    background: #333333;
+    width: 100%;
+    height: 500px;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: -60px;
+}
+
+#search_input {
+  
+        width: 700px;
+        height: 40px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        border-radius: 100px;
+        border: none;
+        padding-left: 45px; 
+        background-color: #fff; 
+        background-image: url('search.png'); 
+        background-repeat: no-repeat;
+        background-position: 10px center; 
+        background-size: 30px;
+        outline: none;
+    
+}
+
+
+#title_name {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+}
+
+.list {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    list-style-type: none;
+    margin-left: -35px;
+    /* justify-content: left; */
+    /* flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto; */
+
+}
+
+a {
+    color:#333333;
+}
+
+#lang-link {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    list-style-type: none;
+    margin-left: -35px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+#div-for-link {
+    margin-top: 20px;
+}
+
+/* Общие стили таблицы */
+
+
+table {
+    border-collapse: collapse;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Стили заголовков */
+th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Стили для четных строк */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+h2 {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style:normal;
+    font-size: 34px; 
+    text-align: center;
+    font-weight: bold;
+}
+
+#img_graphic {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+   
+}
+
+img {
+    margin-top: -30px;
+}
+
+.input_link{
+    width: 700px;
+    height: 40px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 100px;
+    border: none;
+    padding-left: 20px; /* Добавить отступ слева для значка */
+    background-color: #fff; /* Задаем фоновый цвет поля */
+    outline: none;
+    margin-top: -40px;
+}
+
+#back {
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #333333;
+    border: #fff 1px solid;
+    cursor: pointer;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+#message {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+   
+}
+
+#summary-text {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; 
+    width: 55%;
+    height: 100px;
+    margin: 20px;
+    border-radius: 20px;
+    
+    border:2px solid #333333;
+    resize: none;
+    cursor:inherit;
+
+}
+
+#report {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; 
+    width: 55%;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    border:8px solid #333333;
+    resize: none;
+    cursor:inherit;
+
+}
+
+#report:focus {
+   
+    outline: none;
+}
+
+#report::-webkit-scrollbar {
+    background-color:#fff;
+    width:16px;
+    height: 500px;
+    cursor:pointer;
+    border-radius: 20px;
+ }
+ 
+ #report::-webkit-scrollbar:vertical {
+    color:blue;
+    cursor:pointer;
+ }
+ 
+ #report::-webkit-scrollbar-track {
+    background-color:#fff;
+    z-index:500;
+    cursor:pointer;
+    border-radius: 20px;
+ }
+ 
+
+ 
+ ::-webkit-scrollbar {
+    cursor:pointer;
+    visibility:hidden;
+ }
+ 
+ #report::-webkit-scrollbar-track:hover {
+    background:#fff;
+    
+ }
+ 
+ #report::-webkit-scrollbar-thumb {
+    background-color:#babac0;
+    border-radius:20px;
+    border:4px solid #fff;
+    
+   
+ }
+ 
+ #report::-webkit-scrollbar-button {
+    display:none;
+ }
+ 
