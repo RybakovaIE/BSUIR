@@ -12,9 +12,9 @@
 </head>
 <body>
     <div class="all_actions">
-    <h1 id="title_name">Language Recognition</h1>
+    <h1 id="title_name">Automatical Translation</h1>
     <div class="search">
-    <form method="POST" action="{% url 'lang_recognition' %}">
+    <form method="POST" action="{% url 'translation' %}">
         {% csrf_token %}
         <input id="search_input" type="text" name="url" required placeholder="Input URL...">
         
@@ -22,42 +22,40 @@
      
     </div>
     <div id="add_links_and_calc_metrics">
-    <form action="{% url 'download' %}">
-        <button class="btn"  type="submit">Download Result</button>
+        <form action="{% url 'get_words_freq' %}">
+            <button class="btn"  type="submit">Words Frequence</button>
+        </form>    
+    <form action="{% url 'create_tree' %}">
+        <button class="btn"  type="submit">Syntax Tree</button>
     </form>
-    <form action="{% url 'search_results' %}">
-        <button  class="btn" type="submit">Return to search</button>
+    <form action="{% url 'translation' %}">
+        <button class="btn"  type="submit">Return to Translate</button>
     </form>
+   
     </div>
     </div>
     <div id="div-for-link">
     <a id='lang-link' href = '{{ url }}' target="_blank"> {{ url }}</a>
-    </div>
-    {% if results %}
-    {% for method, result in results.items %}
-    <h2>{{ method }}</h2>
-    <table>
+</div>
 
-            <tr>
-                <th>Language</th>
-                <th>Metric</th>
-            </tr>
+{% if pos_tags %}
+<h2>POS Tags</h2>
 
-                <tr>
-                    <td>English</td>
-                    <td>{{ result.0 }}</td>
-                </tr>
-                <tr>
-                    <td>Russian</td>
-                    <td>{{ result.1 }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>Language: {{ result.2 }}</strong></td>
-                </tr>
-    
+<table>
+    <tr>
+        <th>Word</th>
+        <th>POS Tag</th>
+    </tr>
+    {% for word, tag in pos_tags %}
+        <tr>
+            <td>{{ word }}</td>
+            <td>{{ tag }}</td>
+        </tr>
+        {% endfor %}
     </table>
-{% endfor %}
 {% endif %}
-    
+
+
+
 </body>
 </html>

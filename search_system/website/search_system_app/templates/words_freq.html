@@ -11,11 +11,10 @@
 
 </head>
 <body>
-    {% include 'translate.html' %}
     <div class="all_actions">
-    <h1 id="title_name">Automatical report</h1>
+    <h1 id="title_name">Automatical Translation</h1>
     <div class="search">
-    <form method="POST" action="{% url 'auto_keywords_report' %}">
+    <form method="POST" action="{% url 'translation' %}">
         {% csrf_token %}
         <input id="search_input" type="text" name="url" required placeholder="Input URL...">
         
@@ -23,26 +22,38 @@
      
     </div>
     <div id="add_links_and_calc_metrics">
-
-    <form action="{% url 'download_report' %}">
-        <button class="btn"  type="submit">Download Result</button>
+        <form action="{% url 'get_pos_tags' %}">
+            <button class="btn"  type="submit">Pos Tags</button>
+        </form>    
+    <form action="{% url 'create_tree' %}">
+        <button class="btn"  type="submit">Syntax Tree</button>
     </form>
-    <form action="{% url 'search_results' %}">
-        <button  class="btn" type="submit">Return to search</button>
+    <form action="{% url 'translation' %}">
+        <button class="btn"  type="submit">Return to Translate</button>
     </form>
-    <form action="{% url 'auto_report' %}">
-        <button class="btn"  type="submit">Classic Report</button>
-    </form>
+   
     </div>
     </div>
-    
     <div id="div-for-link">
     <a id='lang-link' href = '{{ url }}' target="_blank"> {{ url }}</a>
-    <br>    
 </div>
-    {% if report %}
-   <textarea id = 'report'>{{ report }}</textarea>
-    {% endif %}
-    
+
+{% if words_freq %}
+<h2>Word Frequency</h2>
+<table>
+<tr>
+    <th>Word</th>
+    <th>Frequency</th>
+</tr>
+    {% for word, count in words_freq.items %}
+    <tr>
+        <td>{{ word }}</td>
+        <td>{{ count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+
 </body>
 </html>

@@ -1,0 +1,188 @@
+{% comment %} <!DOCTYPE html>
+<html>
+  <head>
+    <title>Speech recognition</title>
+    <style>
+      #audio-list {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="record">Record</button>
+      <button id="pause">Pause (don't work)</button>
+      <button id="stop">Stop (don't work)</button>
+      <button id="save">Save</button>
+    </div>
+    <div>
+      <h2>Audio list</h2>
+      <ul id="audio-list"></ul>
+    </div>
+
+    <script>
+      let chunks = [];
+      let recorder;
+      let blob = null;
+
+      const recordButton = document.getElementById("record");
+      const pauseButton = document.getElementById("pause");
+      const stopButton = document.getElementById("stop");
+      const saveButton = document.getElementById("save");
+
+      recordButton.addEventListener("click", startRecording);
+      pauseButton.addEventListener("click", pauseRecording);
+      stopButton.addEventListener("click", stopRecording);
+      saveButton.addEventListener("click", saveRecording);
+
+      async function startRecording() {
+        const audioStream = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+        });
+        recorder = new MediaRecorder(audioStream);
+
+        recorder.start();
+        recordButton.disabled = true;
+        pauseButton.disabled = false;
+        stopButton.disabled = false;
+
+        recorder.addEventListener("dataavailable", function (event) {
+          saveAsFile(event.data);
+        });
+      }
+      function saveRecording(blob) {
+        stopRecording();
+        recorder.stop();
+      }
+      function saveAsFile(blob) {
+        // const blob = new Blob(chunks, { type: "audio/wav" });
+        const url = URL.createObjectURL(blob);
+
+        addEntry(url);
+        return;
+        const a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = url;
+        a.download = "recording.ogg";
+        a.click();
+        window.URL.revokeObjectURL(url);
+      }
+      function pauseRecording() {
+        if (recorder.state === "recording") {
+          recorder.pause();
+          pauseButton.innerHTML = "Resume";
+        } else if (recorder.state === "paused") {
+          recorder.resume();
+          pauseButton.innerHTML = "Pause";
+        }
+      }
+      function stopRecording() {
+        recorder.stop();
+        recordButton.disabled = false;
+        pauseButton.disabled = true;
+        stopButton.disabled = true;
+      }
+
+      function addEntry(url) {
+        const entryContainer = document.createElement("li");
+
+        const entryContent = document.createElement("audio");
+        entryContent.setAttribute("controls", "true");
+        entryContent.src = url;
+
+        entryContainer.appendChild(entryContent);
+
+        const entryList = document.getElementById("audio-list");
+        entryList.appendChild(entryContainer);
+      }
+    </script>
+    {% if text %}
+    <h1 id="string">text</h1>
+    <textarea id = 'summary-text-bigger'>{{ text }}</textarea>
+    {% endif %}
+  </body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Recognition System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .conversation {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .system {
+            background-color: #e9ecef;
+        }
+        .user {
+            background-color: #f8f9fa;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .timestamp {
+            font-size: 0.8em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Voice Recognition System</h1>
+    
+    <div class="controls">
+        <button id="startButton">Start Recognition</button>
+        <button id="stopButton">Stop Recognition</button>
+    </div>
+
+    <div id="conversations"></div>
+
+    <script>conversations
+        function updateConversations() {
+            fetch('/conversations/')
+                .then(response => response.json())
+                .then(data => {
+                    const conversationsDiv = document.getElementById('conversations');
+                    conversationsDiv.innerHTML = '';
+                    data.conversations.forEach(conv => {
+                        conversationsDiv.innerHTML += `
+                            <div class="conversation ${conv.speaker.toLowerCase()}">
+                                <strong>${conv.speaker}:</strong>
+                                <span>${conv.message}</span>
+                                <div class="timestamp">${conv.timestamp}</div>
+                            </div>
+                        `;
+                    });
+                });
+        }
+
+        document.getElementById('startButton').addEventListener('click', function() {
+            fetch('/start/')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        });
+
+        document.getElementById('stopButton').addEventListener('click', function() {
+            fetch('/stop/')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        });
+
+        // Обновление разговора каждые 2 секунды
+        setInterval(updateConversations, 5000);
+    </script>
+</body>
+</html>

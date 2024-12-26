@@ -11,7 +11,6 @@
 
 </head>
 <body>
-    {% include 'translate.html' %}
     
     <div id="add_links_and_calc_metrics">
         <form method="GET" action="{% url 'calculate_metrics' %}">
@@ -21,12 +20,21 @@
             <button class="btn"  type="submit">Add links</button>
         </form>
         <form action="{% url 'lang_recognition' %}">
-            <button class="btn"  type="submit">Language Recognition</button>
+            <button class="btn"  type="submit">Language recognition</button>
         </form>
-        {% comment %} <form action="{% url 'auto_report' %}">
-            <button class="btn"  type="submit">Automatical report</button>
-        </form> {% endcomment %}
-        </div>
+        <form action="{% url 'auto_refereeing' %}">
+            <button class="btn"  type="submit">Automatical refereeing</button>
+        </form>
+        <form action="{% url 'translation' %}">
+            <button class="btn"  type="submit">Translation</button>
+        </form>
+        <form action="{% url 'speech_synthesis' %}">
+            <button class="btn"  type="submit">Speech synthesis</button>
+        </form>
+        <form action="{% url 'speech_recognition' %}">
+            <button class="btn"  type="submit">Speech recognition</button>
+        </form>
+    </div>
     <div class="all_actions">
     <h1 id="title_name">Irona Search System</h1>
     <div class="search">
@@ -38,12 +46,6 @@
     </div>
 
     <ul class="list">
-
-            {% comment %} {% for document in documents %}
-         
-            <li>{{ document.doc_id }}<a href = '{{ document.link }}' target="_blank"> {{ document.link }}</a></li>
-                
-            {% endfor %} {% endcomment %}
 
             {%if documents%}
                 {%for document, summary in documents.items%}

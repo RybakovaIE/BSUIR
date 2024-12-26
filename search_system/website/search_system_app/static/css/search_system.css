@@ -92,6 +92,16 @@ pre {
     font-size: 60px;
 }
 
+#string {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 250;
+    font-style: normal;
+    font-size: 40px;
+    padding-left: 45px;
+    margin-bottom: -15px;
+    margin-bottom: -5px;
+}
+
 .list {
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
@@ -99,13 +109,6 @@ pre {
     font-size: 18px;
     list-style-type: none;
     margin-left: -35px;
-    /* justify-content: left; */
-    /* flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin: auto; */
-
 }
 
 a {
@@ -236,11 +239,39 @@ img {
     height: 100px;
     margin: 20px;
     border-radius: 20px;
-    
+    padding: 10px;
     border:2px solid #333333;
     resize: none;
     cursor:inherit;
+}
+#summary-text-bigger {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; 
+    width: 55%;
+    height: 315px;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    border:2px solid #333333;
+    resize: none;
+    cursor:inherit;
+}
 
+#summary-text-smaller {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px; 
+    width: 55%;
+    height: 50px;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    border:2px solid #333333;
+    resize: none;
+    cursor:inherit;
 }
 
 #report {
@@ -309,3 +340,60 @@ img {
     display:none;
  }
  
+ .recorder-container {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recorder-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.recorder-container p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.record-button, .stop-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.record-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.record-button:hover {
+    background-color: #45a049;
+}
+
+.stop-button {
+    background-color: #ff5722;
+    color: white;
+}
+
+.stop-button:hover {
+    background-color: #e64a19;
+}
+
+#progressBar {
+    margin-top: 20px;
+    display: none;
+}

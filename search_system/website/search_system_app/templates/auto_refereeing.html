@@ -11,11 +11,10 @@
 
 </head>
 <body>
-    {% include 'translate.html' %}
     <div class="all_actions">
-    <h1 id="title_name">Automatical report</h1>
+    <h1 id="title_name">Automatical refereeing</h1>
     <div class="search">
-    <form method="POST" action="{% url 'auto_report' %}">
+    <form method="POST" action="{% url 'auto_refereeing' %}">
         {% csrf_token %}
         <input id="search_input" type="text" name="url" required placeholder="Input URL...">
         
@@ -23,9 +22,6 @@
      
     </div>
     <div id="add_links_and_calc_metrics">
-    <form action="{% url 'auto_keywords_report' %}">
-        <button class="btn"  type="submit">Keywords Report</button>
-    </form>
     <form action="{% url 'download_report' %}">
         <button class="btn"  type="submit">Download Result</button>
     </form>
@@ -38,9 +34,13 @@
     <a id='lang-link' href = '{{ url }}' target="_blank"> {{ url }}</a>
 <br>    
 </div>
-    {% if report %}
-   <textarea id = 'report'>{{ report }}</textarea>
+    {% if abstract %}
+    <h1 id="string">abstract</h1>
+    <textarea id = 'summary-text-bigger'>{{ abstract }}</textarea>
     {% endif %}
-    
+    {% if keywords_abstract %}
+    <h4 id="string">keywords</h4>
+   <textarea id = 'summary-text-smaller'>{{ keywords_abstract }}</textarea>
+    {% endif %}
 </body>
 </html>

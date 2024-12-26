@@ -27,20 +27,15 @@ russian_text = read_file(os.path.abspath('search_system_app/train_texts/russian.
 def freq_profile(text):
     lemmatized_words = [lemmatizer.lemmatize(word) for word in word_tokenize(text) if not (word in not_words)]
     fdist = FreqDist(lemmatized_words)
-    print(fdist)
     frequent_words = dict(fdist.most_common(20))
-    print('frequent_words ', frequent_words)
     for word in frequent_words.keys():
         frequent_words[word] = frequent_words[word]/len(lemmatized_words)
-    print('probabilities ', frequent_words)
     return frequent_words
 
 def short_profile(text):
     lemmatized_words = [lemmatizer.lemmatize(word) for word in word_tokenize(text) if (not (word in not_words) and len(word) <= 5)]
     frequent_words = FreqDist(lemmatized_words)
-    print('frequent_words short 1', frequent_words)
     frequent_words = {word: count for word, count in frequent_words.items() if count > 3}
-    print('frequent_words short 2', frequent_words)
     for word in frequent_words.keys():
         frequent_words[word] = frequent_words[word]/len(lemmatized_words)
     return frequent_words
@@ -77,7 +72,6 @@ def train_model():
     
     vectorizer = TfidfVectorizer()
     X = vectorizer.fit_transform(texts)
-    print('vectorized text ', X)
     
     model = MLPClassifier(max_iter=1000)
     model.fit(X, labels)
